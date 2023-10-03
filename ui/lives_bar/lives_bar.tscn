@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxln5ks4ujh6g"]
+
+[ext_resource type="Script" path="res://ui/lives_bar/lives_bar.gd" id="1_0kxya"]
+
+[node name="LivesBar" type="HBoxContainer"]
+script = ExtResource("1_0kxya")
