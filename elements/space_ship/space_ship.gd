@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 const ROCKET_SCENE = preload("res://elements/rocket/rocket.tscn")
-
 const SPEED = 300.0
 
 func _physics_process(delta: float):
@@ -15,7 +14,7 @@ func _physics_process(delta: float):
 func shot():
 	var rocket = ROCKET_SCENE.instantiate()
 	rocket.global_position = global_position + Vector2(0, -30)
-	add_child(rocket)
+	get_tree().root.add_child(rocket)
 
 func take_damage():
 	Globals.change_lives(-1)
