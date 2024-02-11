@@ -2,7 +2,6 @@ extends HBoxContainer
 
 var RECT_SCENE = preload("res://ui/lives_bar/live_rect.tscn")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	Events.lives_changed.connect(update_lives)
 	update_lives(Globals.lives)

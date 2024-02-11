@@ -1,7 +1,8 @@
 extends Node
 
-var points := 0
+var max_lives := 3
 var lives := 3
+var points := 0
 
 func change_points(diff: int):
 	points += diff
