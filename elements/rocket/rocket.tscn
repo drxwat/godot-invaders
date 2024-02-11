@@ -36,7 +36,7 @@ animations = [{
 radius = 3.0
 height = 14.0
 
-[node name="Rocket" type="CharacterBody2D"]
+[node name="Rocket" type="CharacterBody2D" groups=["rocket"]]
 top_level = true
 collision_layer = 0
 collision_mask = 4
