@@ -17,10 +17,25 @@ func _physics_process(delta):
 
 func destroy():
 	Globals.change_points(1)
-	Events.enemy_died.emit()
-	queue_free()
+	$RayCastLeft.enabled = false
+	$RayCastRight.enabled = false
+	var rigidbody = RigidBody2D.new()
+	rigidbody.add_child(CollisionShape2D.new())
+	get_tree().root.add_child(rigidbody)
+	rigidbody.global_position = global_position
+	reparent(rigidbody, true)
+	collision_layer = 0
+	collision_mask = 0
+	rigidbody.apply_impulse(Vector2(randf_range(-1, 1), randf() * 2) * -100)
+	rigidbody.inertia = 1
+	rigidbody.apply_torque_impulse(randf() * 10)
 
 func shot():
 	var bullet = BULLET_SCENE.instantiate()
 	bullet.global_position += global_position + Vector2(0, 10.0)
 	get_tree().root.add_child(bullet)
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	remove_from_group("enemy")
+	Events.enemy_died.emit()
+	get_parent().queue_free()

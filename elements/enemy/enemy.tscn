@@ -46,3 +46,7 @@ target_position = Vector2(-15, 0)
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(15, 0)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
